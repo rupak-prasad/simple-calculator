@@ -1,0 +1,9 @@
+services:
+  # Static Site option (Fastest, zero-cost, CDN cached)
+  - type: web
+    name: simple-calculator-web
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
