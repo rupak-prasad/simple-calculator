@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, fast, and modern calculator with full keyboard support and clean design.">
+  <title>Simple Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Subtle Ambient Glow -->
+  <div class="glow-orb" aria-hidden="true"></div>
+
+  <main class="calculator-app">
+    <!-- Top Bar with Theme Toggle -->
+    <header class="app-header">
+      <div class="app-title">
+        <span class="calc-icon">✦</span>
+        <span>Calculator</span>
+      </div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Calculator Card -->
+    <div class="calculator-card" id="calculator">
+      <!-- Screen / Display -->
+      <div class="display-container" aria-live="polite">
+        <div class="history-display" id="history-display"></div>
+        <div class="current-display" id="current-display">0</div>
+      </div>
+
+      <!-- Keypad -->
+      <div class="keypad-grid" role="group" aria-label="Calculator keypad">
+        <!-- Row 1: Actions & Division -->
+        <button type="button" class="btn btn-action" data-action="clear" id="key-clear" title="Clear all (Escape)">AC</button>
+        <button type="button" class="btn btn-action" data-action="delete" id="key-delete" title="Backspace">⌫</button>
+        <button type="button" class="btn btn-action" data-action="percent" id="key-percent" title="Percentage (%)">%</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="÷" id="key-divide" title="Divide (/)">÷</button>
+
+        <!-- Row 2: 7, 8, 9, Multiply -->
+        <button type="button" class="btn btn-number" data-number="7" id="key-7">7</button>
+        <button type="button" class="btn btn-number" data-number="8" id="key-8">8</button>
+        <button type="button" class="btn btn-number" data-number="9" id="key-9">9</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="×" id="key-multiply" title="Multiply (*)">×</button>
+
+        <!-- Row 3: 4, 5, 6, Subtract -->
+        <button type="button" class="btn btn-number" data-number="4" id="key-4">4</button>
+        <button type="button" class="btn btn-number" data-number="5" id="key-5">5</button>
+        <button type="button" class="btn btn-number" data-number="6" id="key-6">6</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="-" id="key-subtract" title="Subtract (-)">−</button>
+
+        <!-- Row 4: 1, 2, 3, Add -->
+        <button type="button" class="btn btn-number" data-number="1" id="key-1">1</button>
+        <button type="button" class="btn btn-number" data-number="2" id="key-2">2</button>
+        <button type="button" class="btn btn-number" data-number="3" id="key-3">3</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="+" id="key-add" title="Add (+)">+</button>
+
+        <!-- Row 5: Sign Toggle, 0, Decimal, Equals -->
+        <button type="button" class="btn btn-number" data-action="toggle-sign" id="key-sign" title="Change sign (±)">±</button>
+        <button type="button" class="btn btn-number" data-number="0" id="key-0">0</button>
+        <button type="button" class="btn btn-number" data-action="decimal" id="key-decimal" title="Decimal point (.)">.</button>
+        <button type="button" class="btn btn-equals" data-action="calculate" id="key-equals" title="Calculate (Enter)">=</button>
+      </div>
+    </div>
+
+    <!-- Keyboard Help / Shortcuts Indicator -->
+    <footer class="calculator-footer">
+      <span class="hint-badge">Keyboard Ready</span>
+      <p class="hint-text">Use numbers, +, −, *, /, Enter, Backspace, or Esc</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
